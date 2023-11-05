@@ -1,4 +1,6 @@
 import * as React from "react"
+import { questions } from "@/lib/questions"
+import QuestionSelect from "../FormElements/QuestionSelect"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -21,31 +23,23 @@ import {
 
 export function CardWithForm() {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[850px]">
       <CardHeader>
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
-        <form>
+        <form className="flex justify-center items-center">
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Name of your project" />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Framework</Label>
-              <Select>
-                <SelectTrigger id="framework">
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                  <SelectItem value="astro">Astro</SelectItem>
-                  <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                </SelectContent>
-              </Select>
+              {questions.map((question)=>(
+                <>
+                <QuestionSelect key={question.question} question={question.question} options={question.options}/>
+                </>
+              )
+
+              )}
+            
             </div>
           </div>
         </form>

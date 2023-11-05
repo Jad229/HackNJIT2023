@@ -1,11 +1,12 @@
 import QuestionSelect from "@/components/FormElements/QuestionSelect";
+import { CardWithForm } from "@/components/ui/cardwithform";
 
 export default function Home() {
   return (
-    <div>
-      <QuestionSelect question="How blind are you" name="question1"/>
-      <QuestionSelect question="What colorblindness do you have" name="question2"/>
-      <QuestionSelect question="questions" name="question3"/>
+    <div className="h-screen flex justify-center items-center">
+      <div className="">
+        <CardWithForm></CardWithForm>
+      </div>
     </div>
   );
 }
