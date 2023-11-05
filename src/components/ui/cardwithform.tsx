@@ -1,25 +1,25 @@
-import * as React from "react"
-import { questions } from "@/lib/questions"
-import QuestionSelect from "../FormElements/QuestionSelect"
+import { questions } from "@/lib/questions";
+import * as React from "react";
+import QuestionSelect from "../FormElements/QuestionSelect";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function CardWithForm() {
   return (
@@ -29,17 +29,19 @@ export function CardWithForm() {
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
-        <form className="flex justify-center items-center">
+        <form className="flex items-center justify-center">
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              {questions.map((question)=>(
+              {questions.map((question) => (
                 <>
-                <QuestionSelect key={question.question} question={question.question} options={question.options}/>
+                  <QuestionSelect
+                    key={question.question}
+                    name={question.name}
+                    question={question.question}
+                    options={question.options}
+                  />
                 </>
-              )
-
-              )}
-            
+              ))}
             </div>
           </div>
         </form>
@@ -49,5 +51,5 @@ export function CardWithForm() {
         <Button>Deploy</Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
