@@ -19,7 +19,7 @@ function QuestionSelect({ question, name, options }: QuestionSelectProps) {
       <label htmlFor={name}>{question}</label>
       <Select>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="---------------" />
+          <SelectValue placeholder={options[0]} />
         </SelectTrigger>
         <SelectContent>
           {options.map((option, idx) => (
